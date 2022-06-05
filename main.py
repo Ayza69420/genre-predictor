@@ -23,7 +23,7 @@ for i in t_d:
     _, gender, genre = i
     gender = gender.lower()
 
-    if genre not in classifying[gender]: # this line is unnecessary but rather for performance, it's to avoid looping for every single answer
+    if genre not in classifying[gender]:
         ages = [k_age for k_age, k_gender, k_genre in t_d if k_gender.lower() == gender and k_genre == genre]
 
         classifying[gender][genre] = range(min(ages),max(ages)+1)
@@ -33,13 +33,13 @@ for i in d:
     gender = gender.lower()
     possibilities = [genre for genre in classifying[gender]if age in classifying[gender][genre]]
 
-    for k in possibilities[1:]: # comparing each possibility with the first possibility following the below rules
+    for k in possibilities[1:]:
         min_a, min_b = classifying[gender][possibilities[0]][0], classifying[gender][k][0]
         differences = [age-min_a, age-min_b]
 
-        if differences[0] != differences[1]: # If the differences are not the same, look for the farthest one and remove it 
+        if differences[0] != differences[1]:
             possibilities.remove([possibilities[0],k][max(differences)==age-min_b])
-        else: # otherwise, look for the least occurring genre and remove it
+        else: 
             occurrences_a = sum([1 for _, k_gender, k_genre in t_d if k_gender == gender and k_genre == possibilities[0]])
             occurrences_b = sum([1 for _, k_gender, k_genre in t_d if k_gender == gender and k_genre == k])
             
