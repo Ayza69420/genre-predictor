@@ -13,8 +13,8 @@ Check the csv files for examples of valid input.
 
 # Requirements
 
-- Python 3.6+
-- ``pandas`` library (install using ``pip install pandas``)
+- **Python 3.6+**
+- **``pandas`` library (install using ``pip install pandas``)**
 
 # Notes
 
