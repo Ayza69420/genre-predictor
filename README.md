@@ -9,7 +9,7 @@ A simple yet efficient AI made in python.
   - Genre  
 
 Provide the path of the ``train_data.csv`` and the ``test_data.csv`` files in the variables found in the ``main.py`` file.
-Check the ``csv`` files for examples of valid input.
+Check the csv files for examples of valid input.
 
 # Requirements
 
