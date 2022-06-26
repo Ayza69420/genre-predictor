@@ -6,8 +6,8 @@ classifying = {"male": {}, "female": {}}
 occurrences = {"male": {}, "female": {}}
 genres = set()
 
-train_data_path = "C:/Users/ayza6/Documents/train_data.csv"
-test_data_path = "C:/Users/ayza6/Documents/test_data.csv"
+train_data_path = "./train_data.csv"
+test_data_path = "./test_data.csv"
 
 train_data = pd.read_csv(train_data_path)
 test_data = pd.read_csv(test_data_path)
