@@ -43,9 +43,9 @@ for i in d:
         
         if differences[0] != differences[1]: # If the differences are not the same, look for the farthest one and remove it 
             possibilities.remove([possibilities[0],k][max(differences[0:2])==differences[1]])
-        elif occ_a == occ_b: # if occurrences of a == occurrences of b look for the fathest one from the maximum and remove it
-            possibilities.remove([possibilities[0],k][max(differences[3:5])==differences[3]])
-        else: # otherwise, look for the least occurring genre and remove it
+        elif occ_a == occ_b: # otherwise, if the occurrences aren't equal, look for the least occurring genre and remove it
             possibilities.remove([possibilities[0],k][min(occ_a, occ_b)==occ_b])
-
+        else: # if occurrences of a == occurrences of b look for the fathest one from the maximum and remove it, just like the minimum above
+            possibilities.remove([possibilities[0],k][max(differences[3:5])==differences[3]])
+            
     print(f"{age} {gender} : {'/'.join(possibilities)}" if possibilities else None)
