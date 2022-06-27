@@ -47,5 +47,5 @@ for i in d:
             possibilities.remove([possibilities[0],k][min(occ_a, occ_b)==occ_b])
         else: # if occurrences of a == occurrences of b look for the fathest one from the maximum and remove it, just like the minimum above
             possibilities.remove([possibilities[0],k][max(differences[3:5])==differences[3]])
-                
+               
     print(f"{age} {gender} : {'/'.join(possibilities)}" if possibilities else None)
