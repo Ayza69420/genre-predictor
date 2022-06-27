@@ -19,4 +19,4 @@ Check the csv files for examples of valid input.
 # Notes
 
 - Gender can be one of male/female, and it is not case sensitive.
-- This AI cannot predict what is lower/higher than the minimum/maximum age in the given data to keep it as accurrate as I can
+- This AI cannot predict what is below/above the minimum/maximum age in the given data to keep it as accurrate as I can
