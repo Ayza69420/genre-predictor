@@ -29,14 +29,14 @@ for genre in genres:
         ages = [k_age for k_age, k_gender, k_genre in t_d if k_gender == gender and k_genre == genre]
         
         if ages:
-            classifying[gender][genre] = range(min(ages),max(ages)+1)
+            classifying[gender][genre] = (min(ages),max(ages)+1)
 
 for i in d:
     age, gender = i
-    possibilities = [genre for genre in classifying[gender]if age in classifying[gender][genre]]
+    possibilities = [genre for genre in classifying[gender]if age <= classifying[gender][genre][1] and age >= classifying[gender][genre][0]]
 
     for k in possibilities[1:]: # comparing each possibility with the first possibility following the below rules
-        min_a, min_b, max_a, max_b = classifying[gender][possibilities[0]].start, classifying[gender][k].start, classifying[gender][possibilities[0]].stop, classifying[gender][k].stop
+        min_a, min_b, max_a, max_b = classifying[gender][possibilities[0]][0], classifying[gender][k][0], classifying[gender][possibilities[0]][1], classifying[gender][k][1]
         differences = [abs(age-min_a), abs(age-min_b), abs(age-max_a), abs(age-max_b)]
         occ_a = occurrences[gender][possibilities[0]]
         occ_b = occurrences[gender][k]
@@ -47,5 +47,5 @@ for i in d:
             possibilities.remove([possibilities[0],k][min(occ_a, occ_b)==occ_b])
         else: # if occurrences of a == occurrences of b look for the fathest one from the maximum and remove it, just like the minimum above
             possibilities.remove([possibilities[0],k][max(differences[3:5])==differences[3]])
-               
+                
     print(f"{age} {gender} : {'/'.join(possibilities)}" if possibilities else None)
