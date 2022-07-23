@@ -1,9 +1,7 @@
 import pandas as pd
 
-t_d, d = [], []
-
-classifying = {"male": {}, "female": {}}
-occurrences = {"male": {}, "female": {}}
+t_d = d = []
+classifying = occurrences =  {"male": {}, "female": {}}
 genres = set()
 
 train_data_path = "./train_data.csv"
