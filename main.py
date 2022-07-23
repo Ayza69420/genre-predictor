@@ -1,7 +1,7 @@
 import pandas as pd
 
-t_d = 
-d =[]
+t_d = []
+d = []
 classifying = {"male": {}, "female": {}}
 occurrences =  {}
 genres = set()
@@ -22,7 +22,7 @@ for row in train_data.iterrows():
 for row in test_data.iterrows():
     age, gender = row[1].values
 
-    d.append([age, gender])
+    d.append([age, gender.lower()])
 
 for genre in genres:
     for gender in ["male", "female"]:
@@ -38,8 +38,8 @@ for i in d:
     for k in possibilities[1:]: # comparing each possibility with the first possibility following the below rules
         min_a, min_b, max_a, max_b = classifying[gender][possibilities[0]][0], classifying[gender][k][0], classifying[gender][possibilities[0]][1], classifying[gender][k][1]
         differences = [abs(age-min_a), abs(age-min_b), abs(age-max_a), abs(age-max_b)]
-        occ_a = occurrences[possibilities[0]]
-        occ_b = occurrences[k]
+        occ_a = occurrences[gender][possibilities[0]]
+        occ_b = occurrences[gender][k]
         
         if differences[0] != differences[1]: # If the differences are not the same, look for the farthest one and remove it 
             possibilities.remove([possibilities[0],k][max(differences[0:2])==differences[1]])
