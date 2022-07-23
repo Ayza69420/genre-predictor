@@ -20,7 +20,7 @@ for row in train_data.iterrows():
 for row in test_data.iterrows():
     age, gender = row[1].values
 
-    d.append([age, gender.lower()])
+    d.append([age, gender])
 
 for genre in genres:
     for gender in ["male", "female"]:
